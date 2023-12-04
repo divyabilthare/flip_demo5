@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        :root {
+  --base-color: #3f3352;
+  --overlayH: 263;
+  --overlayS: 23%;
+  --overlayL: 26%;
+}
+* {
+  box-sizing: border-box;
+}
+
+body {
+  color: var(--base-color);
+  
+  padding: 1rem;
+  margin: 0;
+  min-height: 110vh;
+  line-height: 1.6;
+  font-family: muli, sans-serif;
+  font-weight: 300;
+  font-style: italic;
+  font-size: 1.125rem;
+}
+h2,
+p {
+  margin-top: 0;
+}
+
+h1,
+h2 {
+  font-family: eloquent-jf-pro, serif;
+  font-weight: 400;
+  line-height: 1.125;
+}
+h2 {
+  font-size: 1.25rem;
+}
+button {
+  font-family: inherit;
+  background: hsl(var(--overlayH), var(--overlayS), var(--overlayL));
+  color: white;
+  border: none;
+  padding: 0.5rem 0.75rem;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.button-inline {
+  padding: 0;
+  display: inline;
+  background: transparent;
+  color: inherit;
+  text-decoration: underline;
+}
+main {
+  visibility: hidden;
+}
+main {
+  max-width: 1400px;
+  margin: 1.5rem auto;
+  display: grid;
+  gap: 1rem;
+}
+@media (min-width: 800px) {
+  main {
+    grid-template-columns: 1fr 3fr;
+    gap: 2rem;
+  }
+}
+
+img,
+a {
+  display: block;
+  height: 100%;
+}
+article a {
+  position: absolute;
+  left: 0;
+  right: 0;
+}
+img {
+  max-width: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.grid {
+  display: grid;
+  grid-gap: 1.5rem;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  grid-template-columns: 1fr 1fr;
+  grid-auto-rows: minmax(16rem, max-content);
+  position: relative;
+}
+@media (min-width: 1024px) {
+  .grid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.grid article {
+  --max: 0;
+  position: relative;
+  overflow: hidden;
+}
+article:not(.details) button,
+article:first-child button {
+  display: none;
+}
+
+article:first-child p:last-of-type {
+  margin: 0;
+}
+.description {
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: clamp(1rem, 2.5vmin, 2.25rem);
+}
+article.details {
+  grid-row: span 2;
+  grid-column: span 2;
+}
+.description {
+  background: linear-gradient(
+    0deg,
+    hsl(var(--overlayH), var(--overlayS), var(--overlayL), calc(1 * var(--max)))
+      0%,
+    hsla(
+        var(--overlayH),
+        var(--overlayS),
+        var(--overlayL),
+        calc(0.738 * var(--max))
+      )
+      19%,
+    hsla(
+        var(--overlayH),
+        var(--overlayS),
+        var(--overlayL),
+        calc(0.541 * var(--max))
+      )
+      34%,
+    hsla(
+        var(--overlayH),
+        var(--overlayS),
+        var(--overlayL),
+        calc(0.382 * var(--max))
+      )
+      47%,
+    hsla(
+        var(--overlayH),
+        var(--overlayS),
+        var(--overlayL),
+        calc(0.278 * var(--max))
+      )
+      56.5%,
+    hsla(
+        var(--overlayH),
+        var(--overlayS),
+        var(--overlayL),
+        calc(0.194 * var(--max))
+      )
+      65%,
+    hsla(
+        var(--overlayH),
+        var(--overlayS),
+        var(--overlayL),
+        calc(0.126 * var(--max))
+      )
+      73%,
+    hsla(
+        var(--overlayH),
+        var(--overlayS),
+        var(--overlayL),
+        calc(0.075 * var(--max))
+      )
+      80.2%,
+    hsla(
+        var(--overlayH),
+        var(--overlayS),
+        var(--overlayL),
+        calc(0.042 * var(--max))
+      )
+      86.1%,
+    hsla(
+        var(--overlayH),
+        var(--overlayS),
+        var(--overlayL),
+        calc(0.021 * var(--max))
+      )
+      91%,
+    hsla(
+        var(--overlayH),
+        var(--overlayS),
+        var(--overlayL),
+        calc(0.008 * var(--max))
+      )
+      95.2%,
+    hsla(
+        var(--overlayH),
+        var(--overlayS),
+        var(--overlayL),
+        calc(0.002 * var(--max))
+      )
+      98.2%,
+    hsla(var(--overlayH), var(--overlayS), var(--overlayL), 0) 100%
+  );
+}
+
+.details-view {
+  color: white;
+  opacity: 0;
+  transform: translateY(100%);
+}
+
+.article-6 {
+  --overlayH: 47;
+  --overlayS: 92%;
+  --overlayL: 32%;
+}
+.article-2 {
+  --overlayH: 353;
+  --overlayS: 34%;
+  --overlayL: 58%;
+}
+.article-5 {
+  --overlayH: 136;
+  --overlayS: 62%;
+  --overlayL: 25%;
+  --overlayH: 176;
+  --overlayS: 49%;
+  --overlayL: 16%;
+}
+
+
+    </style>
+</head>
+<body>
+    <main>
+        <header>
+          <h1>ABOUT US</h1>
+          <p> We are a leading mobile app development agency that specializes in creating innovative and high-quality mobile apps for businesses of all sizes. Our team of experts has extensive experience in developing mobile apps across a wide range of industries, and we pride ourselves on delivering custom solutions that meet the unique needs of each of our clients.
+
+            Our goal is to help businesses grow and succeed by providing them with cutting-edge mobile app technology. We use the latest technologies and industry trends to ensure that our mobile apps are at the forefront of innovation. Our team is dedicated to providing exceptional customer service and support throughout the development process.
+            
+            We have a proven track record of delivering projects on time and within budget, and we prioritize security and reliability to ensure that our mobile apps run smoothly and securely. We also provide ongoing maintenance and updates to keep our mobile apps current and relevant.
+            
+            Choose us for your mobile app development needs, and let us help take your business to the next level of success."
+            
+             <button type="button" id="alpha-order" class="button-inline">alphabetical order.</button></p>
+        </header>
+        <div class="grid">
+          <article class="article article-1">
+            <a href="#">
+              <img src="https://media.istockphoto.com/id/1430286027/photo/information-technology-businessman-working-on-computer-in-office-for-digital-app-software.webp?b=1&s=170667a&w=0&k=20&c=YFwXXbAFfDtX7-2iNcbH6N-ttS3CcnMt7rlUlwIXZ2g=" alt="">
+            </a>
+            <section class="description">
+              <h2>Employee</h2>
+              <div class="details-view">
+                <p>An employee is a worker that performs specific tasks for a business in exchange for regular pay..</p>
+                <button type="button">Move to top</button>
+              </div>
+            </section>
+          </article>
+          <article class="article article-2">
+            <a href="#">
+              <img src="https://media.istockphoto.com/id/1434742171/photo/laptop-ppt-presentation-business-meeting-and-team-working-on-review-for-new-digital-website.webp?b=1&s=170667a&w=0&k=20&c=CTuv0GsOQhhXBx7nhCghIaadrbJS9bpTdIn7zHi8xOo=" alt="">
+            </a>
+            <section class="description">
+              <h2>Team</h2>
+              <div class="details-view">
+                <p>Teamwork instils discipline and a sense of routine, which are essential skills for completing projects..</p>
+                <button type="button">Move to top</button>
+              </div>
+            </section>
+          </article>
+          <article class="article article-3">
+            <a href="#">
+              <img src="https://plus.unsplash.com/premium_photo-1679079456083-9f288e224e96?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTN8fHdlYnNpdGUlMjBmb3IlMjBpdHxlbnwwfHwwfHx8MA%3D%3D" alt="">
+            </a>
+      
+            <section class="description">
+              <h2>Listen To Me</h2>
+              <div class="details-view">
+                <p>Ginger is a flowering plant whose rhizome, ginger root or ginger, is widely used as a spice and a folk medicine.</p>
+                <button type="button">Move to top</button>
+              </div>
+            </section>
+          </article>
+          <article class="article article-4">
+            <a href="#">
+              <img src="https://media.istockphoto.com/id/1334591614/photo/man-using-digital-tablet-online-connect-to-internet-banking-currency-exchange-online-shopping.webp?b=1&s=170667a&w=0&k=20&c=uVgjqk6ZUldPjFOUX35vNMUzJZ6tz_IDV7apr1AWhII=" alt="">
+            </a>
+            <section class="description">
+              <h2>Travel Often</h2>
+              <div class="details-view">
+                <p>.</p>
+                <button type="button">Move to top</button>
+              </div>
+            </section>
+          </article>
+          <article class="details article article-5" style="--max:1">
+            <a href="#">
+              <img src="https://media.istockphoto.com/id/1144645520/photo/busy-call-centre-in-operation.webp?b=1&s=170667a&w=0&k=20&c=7gx8brXk-6uiix8AtVQl0-_0k6U2mY0dyH-qh2_TFqw=" alt="">
+            </a>
+            <section class="description">
+              <h2>Another Plant?</h2>
+              <div class="details-view" style="opacity: 1; transform: translateY(0)">
+                <p>Ginger is a flowering plant whose rhizome, ginger root or ginger, is widely used as a spice and a folk medicine.</p>
+                <button type="button">Move to top</button>
+              </div>
+            </section>
+          </article>
+          <article class="article article-6">
+            <a href="#">
+              <img src="https://media.istockphoto.com/id/1452604857/photo/businessman-touching-the-brain-working-of-artificial-intelligence-automation-predictive.jpg?s=2048x2048&w=is&k=20&c=-dkoxqirWcLDhkIjVgkLfRXdNHqCJdPKswM7tkjTcN0=" alt="">
+            </a>
+            <section class="description">
+              <h2>On the Wave</h2>
+              <div class="details-view">
+                <p>Ginger is a flowering plant whose rhizome, ginger root or ginger, is widely used as a spice and a folk medicine.</p>
+                <button type="button">Move to top</button>
+              </div>
+            </section>
+          </article>
+          <article class="article article-7">
+            <a href="#">
+              <img src="https://media.istockphoto.com/id/1148195855/photo/male-it-technician-running-maintenance-programme-on-a-laptop-controls-operational-server-rack.webp?b=1&s=170667a&w=0&k=20&c=djXzMQKMHZJ6SEeY5Aq-Md6p8EHkxRw0LLr5vCmVVY4=" alt="">
+            </a>
+            <section class="description">
+              <h2>Great Gatsby</h2>
+              <div class="details-view">
+                <p>Ginger is a flowering plant whose rhizome, ginger root or ginger, is widely used as a spice and a folk medicine.</p>
+                <button type="button">Move to top</button>
+              </div>
+            </section>
+          </article>
+          <article class="article article-8">
+            <a href="#">
+              <img src="https://media.istockphoto.com/id/1201468677/photo/friends-drinking-beer-watching-soccer-game-and-using-mobile-app-for-betting.jpg?s=612x612&w=0&k=20&c=tTTFlUbUSN0c0xRNIJhXTbhB54fiR51aDfHxTl5SR6M=" alt="">
+            </a>
+            <section class="description">
+              <h2>In the Sun</h2>
+              <div class="details-view">
+                <p>Ginger is a flowering plant whose rhizome, ginger root or ginger, is widely used as a spice and a folk medicine.</p>
+                <button type="button">Move to top</button>
+              </div>
+            </section>
+          </article>
+        </div>
+      </main>
+
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.3/gsap.min.js" integrity="sha512-7Au1ULjlT8PP1Ygs6mDZh9NuQD0A5prSrAUiPHMXpU6g3UMd8qesVnhug5X4RoDr35x5upNpx0A6Sisz1LSTXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+      <script src="https://unpkg.com/gsap/dist/Flip.min.js"></script>
+    <script>
+        gsap.registerPlugin(Flip);
+
+// grab our element
+const articles = document.querySelectorAll("article");
+const buttons = document.querySelectorAll(".grid button");
+const alphaButton = document.querySelector("#alpha-order");
+const container = document.querySelector(".grid");
+
+for (let article of [...articles]) {
+  article.addEventListener("click", (e) => {
+    e.preventDefault();
+    if (article.classList.contains("details")) {
+      return;
+    }
+    const state = Flip.getState(".grid article");
+
+    const currentDetails = document.querySelector(".details");
+    currentDetails && currentDetails.classList.remove("details");
+
+    article.classList.add("details");
+    // "FLIP" animate from that saved state.
+    const tl = Flip.from(state, {
+      duration: 1,
+      ease: "power1.inOut",
+      stagger: 0.05,
+      absolute: true,
+      toggleClass: "changing",
+      onStart: () => {
+        gsap.to(".details-view", {
+          opacity: 0,
+          y: "100%",
+          duration: 0.5
+        });
+        gsap.to(".grid article", {
+          "--max": 0,
+          duration: 0.8
+        });
+        gsap.to(".grid article.details", {
+          "--max": 1,
+          duration: 1,
+          delay: 0.2
+        });
+      }
+    });
+
+    tl.to(
+      ".details .details-view",
+      { opacity: 1, y: 0, duration: 0.75 },
+      "-=.25"
+    );
+  });
+}
+
+for (let button of [...buttons]) {
+  button.addEventListener("click", () => {
+    const a = button.parentNode.parentNode.parentNode;
+    const state = Flip.getState(".grid article, .description .details-view");
+    container.prepend(a);
+    const tl = Flip.from(state, {
+      duration: 1,
+      ease: "power1.inOut",
+      stagger: 0.05,
+      absolute: true
+    });
+  });
+}
+
+alphaButton.addEventListener("click", () => {
+  const state = Flip.getState(".grid article, .description .details-view");
+  [...articles]
+    .sort((r, l) => {
+      const titleR = r.querySelector("h2");
+      const titleL = l.querySelector("h2");
+      if (titleR.textContent > titleL.textContent) return 1;
+      if (titleL.textContent > titleR.textContent) return -1;
+      return 0;
+    })
+    .forEach((article) => container.append(article));
+  const tl = Flip.from(state, {
+    duration: 1,
+    ease: "power1.inOut",
+    stagger: 0.05,
+    absolute: true
+  });
+});
+
+// Intro animation
+window.addEventListener("load", () => {
+  gsap.to("main", { autoAlpha: 1, duration: 0.4 });
+  gsap.from(".grid article", {
+    autoAlpha: 0,
+    yPercent: 30,
+    stagger: 0.04
+  });
+});
+
+
+    </script>
+    
+</body>
+</html>
